@@ -1,4 +1,4 @@
-/* Reset */
+/* ---------------- RESET ---------------- */
 * {
     margin: 0;
     padding: 0;
@@ -11,15 +11,16 @@ body {
     color: #ffffff;
 }
 
-/* Navigation */
+/* ---------------- NAVIGATION ---------------- */
 nav {
     background-color: #2a2a2a;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 8%;
+    padding: 20px 8%;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 nav .logo {
@@ -28,17 +29,18 @@ nav .logo {
 }
 
 nav .logo img {
-    width: 100px;       /* adjust size as needed */
-    height: 100px;      /* same as width for perfect circle */
-    border-radius: 50%; /* makes it circular */
-    object-fit: cover;  /* crops the image to fit the circle */
+    width: 100px;        /* circular logo size */
+    height: 100px;
+    border-radius: 50%;  /* make circular */
+    object-fit: cover;
     margin-right: 15px;
-    display: block;
 }
-
 
 nav h1 {
     color: #00f0ff;
+    text-shadow:
+        0 0 5px #00f0ff,
+        0 0 10px #00f0ff;
 }
 
 nav ul {
@@ -60,16 +62,27 @@ nav ul li a:hover {
     color: #00f0ff;
 }
 
-/* Hero */
+/* ---------------- HEADER / HERO ---------------- */
 header {
+    position: relative;
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(90deg, #1c1c1c, #2a2a2a);
+    padding: 120px 20px;
+    background-color: #1c1c1c;
+
+    /* background logo */
+    background-image: url('images/logo.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150px 150px;
 }
 
 header h2 {
     font-size: 36px;
     color: #00f0ff;
+    text-shadow:
+        0 0 5px #00f0ff,
+        0 0 10px #00f0ff,
+        0 0 20px #00f0ff;
 }
 
 header p {
@@ -77,53 +90,68 @@ header p {
     color: #ccc;
 }
 
-/* Sections */
+/* ---------------- SECTIONS ---------------- */
 .section {
     padding: 60px 8%;
     text-align: center;
+    border-radius: 15px;
 }
 
 .section h2 {
     margin-bottom: 30px;
     color: #00f0ff;
+    text-shadow:
+        0 0 5px #00f0ff,
+        0 0 10px #00f0ff;
 }
 
-/* Menu */
-.menu-container {
+/* ---------------- MENU ---------------- */
+.menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 
-.menu-item {
+.menu-card {
     background-color: #2a2a2a;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: 0.3s;
+    box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
 }
 
-.menu-item:hover {
+.menu-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 15px #00f0ff;
+    box-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff, 0 0 50px #00f0ff;
 }
 
-.menu-item img {
+.menu-card img {
     width: 100%;
-    border-radius: 10px;
+    height: 250px;       /* uniform card height */
+    object-fit: cover;
+    border-radius: 15px;
 }
 
-.menu-item h3 {
+.menu-card h3 {
     margin: 15px 0 10px;
     color: #00f0ff;
 }
 
-/* Footer */
+/* ---------------- LOCATION ---------------- */
+#location iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 15px;
+}
+
+/* ---------------- FOOTER ---------------- */
 footer {
     background-color: #2a2a2a;
-    color: #aaa;
     text-align: center;
     padding: 30px 20px;
     margin-top: 40px;
+    color: #aaa;
     font-size: 14px;
 }
 
@@ -137,80 +165,59 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive */
+/* ---------------- MOBILE RESPONSIVE ---------------- */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
+        padding: 15px 8%;
+    }
+
+    nav .logo img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
     }
 
     nav ul {
+        flex-direction: column;
         margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
     }
 
     header h2 {
         font-size: 28px;
     }
-}
-.menu-card img {
-    width: 50%;
-    height: 350px;        /* Same height for all */
-    object-fit: cover;    /* Prevent stretching */
-    border-radius: 50px;
-}
-/* Neon glow text */
-h1, h2, h3 {
-    color: #00f0ff; /* neon cyan */
-    text-shadow: 
-        0 0 5px #00f0ff,
-        0 0 10px #00f0ff,
-        0 0 20px #00f0ff,
-        0 0 40px #00f0ff;
-}
-/* Neon glowing border for menu cards */
-.menu-card {
-    background-color: #2a2a2a;
-    padding: 10px;
-    border-radius: 10px;
-    transition: 0.3s;
-    box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff; /* neon glow */
+
+    header {
+        padding: 100px 20px;
+        background-size: 120px 120px; /* scale background logo */
+    }
+
+    .menu-card img {
+        height: 200px;
+    }
 }
 
-.menu-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff, 0 0 50px #00f0ff;
-}
-.section {
-    padding: 60px 8%;
-    text-align: center;
-    border: 2px solid #00f0ff;     /* neon border */
-    border-radius: 15px;
-    box-shadow: 0 0 15px #00f0ff;  /* glow effect */
-    margin-bottom: 40px;
-}
-header {
-    background-color: #1c1c1c;
-    background-image: url('images/logo.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 200px 200px;
-    opacity: 1;
-}
+@media (max-width: 480px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* one column for very small screens */
+    }
 
-header::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
-    background-image: url('images/logo.jpg');
-    background-repeat: no-repeat;
-    background-size: 200px 200px;
-    opacity: 0.1;       /* faint behind text */
-    z-index: 0;
-}
-header * {
-    position: relative;
-    z-index: 1;          /* ensures text is above background logo */
+    nav .logo img {
+        width: 70px;
+        height: 70px;
+    }
+
+    header {
+        padding: 80px 15px;
+        background-size: 100px 100px;
+    }
+
+    .menu-card img {
+        height: 180px;
+    }
 }
